@@ -1,0 +1,32 @@
+name: Teste sec
+
+on: [push]
+
+jobs:
+  # 1. AMBIENTE DE SEGURANÇA (Onde o DevSecOps atua)
+  security_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Rodando Semgrep (SAST Gratuito)
+        run: |
+          pip install semgrep
+          semgrep scan --error --config auto
+        # O Semgrep vai achar a senha no código e vai "quebrar" a esteira aqui!
+
+  # 2. AMBIENTE DE STAGING (Só roda se a segurança passar)
+  staging_deploy:
+    needs: security_scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulando Deploy em Staging
+        run: echo "Deploy efetuado com sucesso em ambiente de testes."
+
+  # 3. AMBIENTE DE PRODUÇÃO (O passo final)
+  production_deploy:
+    needs: staging_deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy para Produção
+        run: echo "Sua aplicação está no ar!"
