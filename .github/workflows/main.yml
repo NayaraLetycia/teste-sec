@@ -10,6 +10,8 @@ jobs:
       # ... dentro do seu job ...
       - name: Executando o script
         run: python code/sec-senha.py
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
 
       - name: Rodando Semgrep (SAST Gratuito)
         run: |
