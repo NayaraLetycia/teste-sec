@@ -30,8 +30,9 @@ def ping_host(hostname):
 ping_host("8.8.8.8")
 
 ################################################ 3 
-import pickle
+#import pickle
+import json
 
-def carregar_configuracao(dados_binarios):
+def carregar_configuracao(dados_binarios_json):
     # VULNERÁVEL: Pode executar código arbitrário ao carregar. Melhor escolher um JSON, que só transportam dados
-    return pickle.loads(dados_binarios)
+    return pickle.loads(dados_binarios_json)
