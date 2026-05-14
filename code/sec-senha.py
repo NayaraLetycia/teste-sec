@@ -35,4 +35,4 @@ import json
 
 def carregar_configuracao(dados_binarios_json):
     # VULNERÁVEL: Pode executar código arbitrário ao carregar. Melhor escolher um JSON, que só transportam dados
-    return pickle.loads(dados_binarios_json)
+    return json.loads(dados_binarios_json)
