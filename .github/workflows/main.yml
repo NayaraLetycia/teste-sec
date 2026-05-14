@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      # ... dentro do seu job ...
+      - name: Executando o script
+        run: python code/sec-senha.py
 
       - name: Rodando Semgrep (SAST Gratuito)
         run: |
