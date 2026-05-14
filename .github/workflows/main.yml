@@ -3,7 +3,6 @@ name: Teste sec
 on: [push]
 
 jobs:
-  # 1. AMBIENTE DE SEGURANÇA (Onde o DevSecOps atua)
   security_scan:
     runs-on: ubuntu-latest
     steps:
