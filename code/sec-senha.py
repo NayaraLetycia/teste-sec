@@ -1,4 +1,8 @@
+import os
 
-def connect_service():
-    #print(f"Conectando com a chave: {AWS_SECRET_KEY}")
-    print(f"Conectando com a chave: {AWS_ACCESS_KEY}")
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY")
+
+def start_session():
+    if not AWS_ACCESS_KEY_ID:
+        return "Erro: Chave não configurada!"
+    return "Sessão iniciada com segurança."
