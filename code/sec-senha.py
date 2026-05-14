@@ -1,11 +1,6 @@
-# app.py
-def login(password):
-    # ERRO DE SEGURANÇA: Senha exposta no código (Hardcoded)
-    secret_password = "admin_password_123"
-    
-    if password == secret_password:
-        return "Acesso Permitido"
-    else:
-        return "Acesso Negado"
+# Simulando uma chave de API real (padrão que scanners detectam fácil)
+AWS_SECRET_KEY = "AKIAIMRE7GV76B7D5FWA" 
+GITHUB_TOKEN = "ghp_n0tArEalT0kEnThAtL00ksREal1234567890"
 
-print(login("123"))
+def connect_service():
+    print(f"Conectando com a chave: {AWS_SECRET_KEY}")
