@@ -12,7 +12,7 @@ jobs:
       - name: Rodando Semgrep (SAST Gratuito)
         run: |
           pip install semgrep
-          semgrep scan --error --config auto
+          semgrep scan --error --config auto --verbose flag
         # O Semgrep vai achar a senha no código e vai "quebrar" a esteira aqui!
 
   # 2. AMBIENTE DE STAGING (Só roda se a segurança passar)
